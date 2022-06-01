@@ -1,0 +1,94 @@
+\documentclass{beamer}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{color}
+\usepackage{array}
+\usepackage{calc} 
+\usepackage{bm}
+\usepackage{caption}
+\usepackage{float}
+
+\usetheme{CambridgeUS}
+\useoutertheme{infolines}
+%numbering
+\setbeamercolor{background canvas}{bg=white}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+\title[AI1110  Assignment-7]{ASSIGNMENT-7}
+\subtitle{AI1110}
+\author[]{MUKUNDA REDDY \\ AI21BTECH11021}
+\date{}
+
+\begin{document}
+  \begin{frame}
+      \titlepage
+  \end{frame}
+  
+  \begin{frame}{Outline}
+      \tableofcontents
+  \end{frame}
+  
+  \section{Question}
+  \begin{frame}{Example 6-43}
+  Suppose $\textbf{x}$ and $\textbf{y}$ are independent binomial random variables
+  with parameters $(m, p)$ and $(n, p)$ respectively. Then $\textbf{x} + \textbf{y}$ is also binomial with parameter $(m + n, p)$, so that \\
+  $$ P\{x=x|\textbf{x}+\textbf{y}=x+y\} = \frac{P\{x=x\}P\{y=y\}}{P\{x+y=x+y\}} = \frac{(\frac{m}{n})(\frac{n}{y})}{(\frac{m+n}{x+y})}  $$ \\
+  Thus the conditional distribution of $\textbf{x}$ given $\textbf{x} + \textbf{y}$ is
+  hypergeometric. Show that the converse of this result which states that if $x$ and $y$ are non negative independent random
+  variables such that $P\{x=0\}>0,P\{y=0\}>0$ and the conditional
+  \end{frame}
+  
+  \begin{frame}{Example 6-43}
+  Show that the converse of this result which states that if
+   $x$ and $y$ are non negative independent random
+   variables such that $P\{x=0\}>0$,$P\{ y=0\}>0$ and the conditional
+   distribution of x given x + y is hyper geometric,then x and y are binomial random variables ?
+  \end{frame}
+  
+  \section{Solution}
+  \begin{frame}{Solution}
+      We know that
+      $$\frac{P \{ x= x \} }{{m \choose k}} \frac{P \{ y=y \} }{{n \choose y} }= \frac{P\{x+y=x+y\}}{{{m+n}\choose{x+y}}}$$
+      let 
+      $$\frac{P \{ x= x \} }{{m \choose k}} = f(x),\frac{P \{ y=y \} }{{n \choose y}} = g(y),\frac{P\{x+y=x+y\}}{ {{m+n} \choose {x+y}}} = h(x+y)$$
+      \begin{center}
+      Then h(x+y) = f(x) \times g(y)
+      \end{center}
+  \end{frame}
+  
+  \begin{frame}{Solution}
+      and Hence
+      \begin{center}
+          $h(1) = f(1)g(0) = f(0)g(1)$ \\ \vspace{6pt}
+          $h(2) = f(2)g(0) =f(1)g(1) = f(0)g(2)$  \\ \vspace{6pt}
+         Generalizing $h(k) = f(k)g(0) = f(k-1)g(1)=...$ \\
+      \end{center}
+      Thus 
+      $$f(k)=f(k-1)\frac{g(1)}{g(0)} = f(0)\left( \frac{g(1)}{g(0)} \right)^{k} $$
+  \end{frame}
+  
+  \begin{frame}{Solution}
+      or
+      $$P\{x=k\} = {m \choose k}P{x=0}a^k \:\:  k=0,1,2....$$
+     where    $a=\frac{g(1)}{g(0)} >0$.But $\sum P\{x=k\}=1$
+     gives $P\{x=0\}(1+a)^m = 1$ or $P\{x=0\} = q^m$ where
+     $q=\frac{1}{1+a} <1$.Hence $a=\frac{p}{q}$ where $p=1-q 
+     >0$.We know that
+     $$ P\{x=k\} = {m \choose k}p^k q^{m-k} , k=0,1,2....$$
+  \end{frame}
+  
+  \begin{frame}{Solution}
+      Similarly we can also show 
+      $$ P\{y=r\}  = {n \choose r}p^r q^n-r, r=0,1,2...n$$ 
+      Hence the proof is completed.
+  \end{frame}
+  
+  
+\end{document}
